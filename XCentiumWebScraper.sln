@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCentiumWebScraper", "XCentiumWebScraper\XCentiumWebScraper.csproj", "{6208520D-5E2B-485B-86B1-C5A427D4BECE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCentiumWebScraper.Core", "XCentiumWebScraper.Core\XCentiumWebScraper.Core.csproj", "{E7868B9B-9C17-4C79-A78E-238C7FFD8168}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6208520D-5E2B-485B-86B1-C5A427D4BECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6208520D-5E2B-485B-86B1-C5A427D4BECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6208520D-5E2B-485B-86B1-C5A427D4BECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6208520D-5E2B-485B-86B1-C5A427D4BECE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7868B9B-9C17-4C79-A78E-238C7FFD8168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7868B9B-9C17-4C79-A78E-238C7FFD8168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7868B9B-9C17-4C79-A78E-238C7FFD8168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7868B9B-9C17-4C79-A78E-238C7FFD8168}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DD76ABFB-670B-41C1-A255-E2312A103B57}
+	EndGlobalSection
+EndGlobal

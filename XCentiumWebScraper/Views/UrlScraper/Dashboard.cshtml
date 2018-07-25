@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+@using XCentiumWebScraper.Core
+@model IEnumerable<XCentiumWebScraper.Core.Model.DocInfo>
+
+
+<section>
+    <ul>
+        @foreach(var item in Model)
+        {
+            <li>@item.RunDate.ToString(Constants.DateFormatString) @Html.ActionLink(item.Url, "History", "UrlScraper", new { id = item.Id }, new { @class = "" })</li>
+        }
+    </ul>
+</section>

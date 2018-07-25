@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "Results";
+    var activeStatus = "active";
+}
+@using XCentiumWebScraper.Core
+@model XCentiumWebScraper.Core.Model.DocInfo
+
+<section id="imageresults">
+    <h2>Image Results</h2>
+    <div id="carouselComponent" class="carousel slide" data-ride="carousel" aria-label="Carousel Image Slider">
+        <div class="carousel-inner">
+            @foreach (var slide in Model.Images)
+            {
+                <div class="carousel-item @activeStatus">
+                    <img src="@slide" alt="@slide">
+                </div>
+
+                if (activeStatus == "active")
+                {
+                    activeStatus = "";
+                }
+            }
+        </div>
+        <a class="carousel-control-prev left" href="#carouselComponent" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon icon-arrow-circle-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next right" href="#carouselComponent" role="button" data-slide="next">
+            <span class="carousel-control-next-icon icon-arrow-circle-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+<section id="wordresults">
+    <h2>Word Data Results</h2>
+    <div>
+        <div><strong>Total Word Count: </strong> @Model.TotalWordCount</div>
+        <div><strong>Total Unique Words: </strong> @Model.UniqueWordCount</div>
+        <div><strong>Most Used Words: </strong> @string.Join(", ", Model.TopWords.Select(w => w.Word))</div>
+        <canvas id="wordChart" width="400" height="200"></canvas>
+
+        @for (int i=1; i<=Model.TopWords.Count; i++)
+        {
+            <input type="hidden" id="wc_word_@i" value="@Model.TopWords[@i-1].Word" />
+            <input type="hidden" id="wc_count_@i" value="@Model.TopWords[@i-1].Count" />
+        }
+    </div>
+</section>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+          integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                @Html.ActionLink("Url Scraper", "Dashboard", "UrlScraper", new { }, new { @class = "navbar-brand home-link" })
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <section>
+            <form action="@Url.Action("Scrape", "UrlScraper")">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 col-sm-12">
+                        <input id="url" name="url" type="url" class="form-control" placeholder="Insert URL here">
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12">
+                        <input type="submit" name="submit" value="Go!" class="btn btn-success" />
+                    </div>
+                </div>
+            </form>
+        </section>
+        <hr />
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>@DateTime.Now.Year - XCentium Test Application</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"
+            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="~/Scripts/Site.js"></script>
+</body>
+</html>

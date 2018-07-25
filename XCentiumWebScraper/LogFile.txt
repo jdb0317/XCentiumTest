@@ -1,0 +1,82 @@
+07-25-YYYY 03:31
+Unknown External Site
+Error - System.Exception: Invalid url! https://vuejsaf . .org/
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 43
+07-25-YYYY 03:31
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper.GetDocumentImages() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 87
+   at XCentiumWebScraper.Core.Scraper.Execute() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 57
+07-25-YYYY 03:31
+Unknown External Site
+Error - System.Exception: Invalid url! https://vuejsaf . .org/
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 43
+07-25-YYYY 03:31
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper.GetDocumentImages() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 87
+   at XCentiumWebScraper.Core.Scraper.Execute() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 57
+07-25-YYYY 03:32
+Unknown External Site
+Error - System.Exception: Invalid url! https://vuejsaf . .org/
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 43
+07-25-YYYY 03:32
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper.GetDocumentImages() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 87
+   at XCentiumWebScraper.Core.Scraper.Execute() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 57
+07-25-YYYY 03:32
+Unknown External Site
+Error - System.Exception: Invalid url! https://vuejsaf . .org/
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 43
+07-25-YYYY 03:33
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 37
+07-25-YYYY 03:33
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper.GetDocumentImages() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 93
+   at XCentiumWebScraper.Core.Scraper.Execute() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 57
+07-25-YYYY 03:34
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 37
+07-25-YYYY 03:34
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper.GetDocumentImages() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 93
+   at XCentiumWebScraper.Core.Scraper.Execute() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 57
+07-25-YYYY 03:34
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 37
+07-25-YYYY 03:34
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper.GetDocumentImages() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 93
+   at XCentiumWebScraper.Core.Scraper.Execute() in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 57
+07-25-YYYY 03:34
+Unknown External Site
+Error - System.NullReferenceException: Object reference not set to an instance of an object.
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 37
+July-25-2018 05:45
+Unknown External Site
+Error - System.Exception: Invalid url! D:bc.html
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 42
+July-25-2018 05:45
+Unknown External Site
+Error - System.Exception: Invalid url! D:bc.html
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 42
+July-25-2018 07:46
+Unknown External Site
+Error - System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: Only one usage of each socket address (protocol/network address/port) is normally permitted 184.168.224.173:80
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at HtmlAgilityPack.HtmlWeb.Get(Uri uri, String method, String path, HtmlDocument doc, IWebProxy proxy, ICredentials creds) in c:\Users\stgrell\Source\Workspaces\htmlagilitypack\Trunk\HtmlAgilityPack\HtmlWeb.cs:line 1355
+   at HtmlAgilityPack.HtmlWeb.LoadUrl(Uri uri, String method, WebProxy proxy, NetworkCredential creds) in c:\Users\stgrell\Source\Workspaces\htmlagilitypack\Trunk\HtmlAgilityPack\HtmlWeb.cs:line 1479
+   at HtmlAgilityPack.HtmlWeb.Load(String url, String method) in c:\Users\stgrell\Source\Workspaces\htmlagilitypack\Trunk\HtmlAgilityPack\HtmlWeb.cs:line 1106
+   at HtmlAgilityPack.HtmlWeb.Load(String url) in c:\Users\stgrell\Source\Workspaces\htmlagilitypack\Trunk\HtmlAgilityPack\HtmlWeb.cs:line 1061
+   at XCentiumWebScraper.Core.Scraper..ctor(String url) in D:\webroot\XCentiumWebScraper\XCentiumWebScraper.Core\Scraper.cs:line 31
