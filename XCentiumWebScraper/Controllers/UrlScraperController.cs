@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -18,14 +19,7 @@ namespace XCentiumWebScraper.Controllers
         /// <returns></returns>
         public ActionResult Dashboard()
         {
-            var filePath = $"{AppDomain.CurrentDomain.BaseDirectory}/{Constants.HistoryFileName}";
-            var serializer = new JavaScriptSerializer();
-            var historyItems = System.IO.File.Exists(filePath)
-                ? System.IO.File.ReadAllLines(filePath)
-                    .Select(x => serializer.Deserialize<DocInfo>(x))
-                    .Reverse()
-                : new List<DocInfo>();
-
+            var historyItems = Scraper.ReadHistory();
             return View(historyItems);
         }
 
@@ -51,15 +45,16 @@ namespace XCentiumWebScraper.Controllers
         /// <returns></returns>
         public ActionResult History(Guid id)
         {
-            var filePath = $"{AppDomain.CurrentDomain.BaseDirectory}/{Constants.HistoryFileName}";
-            var serializer = new JavaScriptSerializer();
-            var item = System.IO.File.ReadAllLines(filePath)
-                ?.Select(x => serializer.Deserialize<DocInfo>(x))
-                ?.FirstOrDefault(x => x.Id == id);
-
+            DocInfo item = Scraper.ReadHistoryItem(id);
             return item != null 
                 ? View("~/Views/UrlScraper/Results.cshtml", item)
                 : null;
+        }
+
+        public ActionResult ClearHistory()
+        {
+            Scraper.ClearHistory();
+            return RedirectToAction("Dashboard");
         }
     }
 }

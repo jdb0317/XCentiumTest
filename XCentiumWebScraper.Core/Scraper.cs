@@ -1,4 +1,5 @@
 ﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,21 +83,32 @@ namespace XCentiumWebScraper.Core
         /// Scrape document for img tags and return src attribute values
         /// </summary>
         /// <returns></returns>
-        public void GetDocumentImages()
+        private void GetDocumentImages()
         {
             var imageNodes = Document.DocumentNode.SelectNodes("//body//img")
                     ?.Select(n => n.Attributes["src"]?.Value)
                     ?.Where(n => !string.IsNullOrEmpty(n))
-                    .Select(n => n.ToLower().StartsWith("http")
-                        ? n : string.Format("{0}://{1}", SiteUri.Scheme, (SiteUri.Host + "/" + n).Replace("//", "/")));
+                    .Select(n => ParseImagePath(n));
 
-            DocInfo.Images = imageNodes;
+            DocInfo.Images = imageNodes ?? new List<string>();
+        }
+
+        private string ParseImagePath(string imgPath)
+        {
+            //string.Format("{0}://{1}", SiteUri.Scheme, (SiteUri.Host + "/" + n).Replace("//", "/")))
+
+            if (imgPath.ToLower().StartsWith("http"))
+                return imgPath;
+            if (imgPath.StartsWith("//"))
+                return string.Format("{0}:{1}", SiteUri.Scheme, imgPath);
+
+            return string.Format("{0}://{1}", SiteUri.Scheme, (SiteUri.Host + "/" + imgPath).Replace("//", "/"));
         }
 
         /// <summary>
         /// Scrape document for text data within nodes
         /// </summary>
-        public void GetDocumentTextData()
+        private void GetDocumentTextData()
         {
             var textValues = new List<string>();
             var illegalNodeNames = new string[] { "script", "style" };
@@ -132,6 +144,71 @@ namespace XCentiumWebScraper.Core
                 .Take(10)
                 .Select(g => new WordAndCount(g.Key, g.Count()))
                 .ToList();
+        }
+
+        /// <summary>
+        /// Return all records currently in the history file
+        /// </summary>
+        /// <returns></returns>
+        public static IEnumerable<DocInfo> ReadHistory()
+        {
+            try
+            {
+                var filePath = $"{AppDomain.CurrentDomain.BaseDirectory}/{Constants.HistoryFileName}";
+                var historyItems = System.IO.File.Exists(filePath)
+                    ? System.IO.File.ReadAllLines(filePath)
+                        .Select(x => JsonConvert.DeserializeObject<DocInfo>(x))
+                        .Reverse()
+                    : new List<DocInfo>();
+                return historyItems ?? new List<DocInfo>();
+            }
+            catch (Exception exc)
+            {
+                new LogEntry(exc).SaveLogEntryFile();
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Return a single record that exists in the history file
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static DocInfo ReadHistoryItem(Guid id)
+        {
+            try
+            {
+                var filePath = $"{AppDomain.CurrentDomain.BaseDirectory}/{Constants.HistoryFileName}";
+                var item = System.IO.File.ReadAllLines(filePath)
+                    ?.Select(x => JsonConvert.DeserializeObject<DocInfo>(x))
+                    ?.FirstOrDefault(x => x.Id == id);
+                return item;
+            }
+            catch (Exception exc)
+            {
+                new LogEntry(exc).SaveLogEntryFile();
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// Clear all recorded execution history
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static void ClearHistory()
+        {
+            try
+            {
+                var filePath = $"{AppDomain.CurrentDomain.BaseDirectory}/{Constants.HistoryFileName}";
+                if (System.IO.File.Exists(filePath))
+                {
+                    System.IO.File.Delete(filePath);
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

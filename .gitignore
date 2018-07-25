@@ -198,3 +198,4 @@ FakesAssemblies/
 # Sitecore Files/Directories
 /Data/*
 
+XCentiumWebScraper/ScrapeHistory.txt

@@ -6,33 +6,41 @@
 @model XCentiumWebScraper.Core.Model.DocInfo
 
 <section id="imageresults">
-    <h2>Image Results</h2>
-    <div id="carouselComponent" class="carousel slide" data-ride="carousel" aria-label="Carousel Image Slider">
-        <div class="carousel-inner">
-            @foreach (var slide in Model.Images)
-            {
-                <div class="carousel-item @activeStatus">
-                    <img src="@slide" alt="@slide">
-                </div>
-
-                if (activeStatus == "active")
+    <h1>Results for @Model.Url</h1>
+    <h3>Image Results</h3>
+    @if (Model.Images != null && Model.Images.Any())
+    {
+        <div id="carouselComponent" class="carousel slide" data-ride="carousel" aria-label="Carousel Image Slider">
+            <div class="carousel-inner">
+                @foreach (var slide in Model.Images)
                 {
-                    activeStatus = "";
+                    <div class="carousel-item @activeStatus">
+                        <img src="@slide" alt="@slide">
+                    </div>
+
+                    if (activeStatus == "active")
+                    {
+                        activeStatus = "";
+                    }
                 }
-            }
+            </div>
+            <a class="carousel-control-prev left" href="#carouselComponent" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon icon-arrow-circle-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next right" href="#carouselComponent" role="button" data-slide="next">
+                <span class="carousel-control-next-icon icon-arrow-circle-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev left" href="#carouselComponent" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon icon-arrow-circle-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next right" href="#carouselComponent" role="button" data-slide="next">
-            <span class="carousel-control-next-icon icon-arrow-circle-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+    }
+    else
+    {
+        <h4>There are no image items to display</h4>
+    }
 </section>
 <section id="wordresults">
-    <h2>Word Data Results</h2>
+    <h3>Word Data Results</h3>
     <div>
         <div><strong>Total Word Count: </strong> @Model.TotalWordCount</div>
         <div><strong>Total Unique Words: </strong> @Model.UniqueWordCount</div>

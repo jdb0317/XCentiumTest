@@ -4,12 +4,19 @@
 @using XCentiumWebScraper.Core
 @model IEnumerable<XCentiumWebScraper.Core.Model.DocInfo>
 
-
 <section>
-    <ul>
-        @foreach(var item in Model)
-        {
-            <li>@item.RunDate.ToString(Constants.DateFormatString) @Html.ActionLink(item.Url, "History", "UrlScraper", new { id = item.Id }, new { @class = "" })</li>
-        }
-    </ul>
+    @if (Model != null && Model.Any())
+    {
+        @Html.ActionLink("Clear history", "ClearHistory", "UrlScraper", new { }, new { @class = "" })
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@item.RunDate.ToString(Constants.DateFormatString) @Html.ActionLink(item.Url, "History", "UrlScraper", new { id = item.Id }, new { @class = "" })</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <h4>There are no items in history to view</h4>
+    }
 </section>
