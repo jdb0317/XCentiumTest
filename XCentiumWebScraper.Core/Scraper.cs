@@ -125,13 +125,14 @@ namespace XCentiumWebScraper.Core
                 {
                     var trimmedText = text.Trim();
                     var punctuation = text.Where(Char.IsPunctuation).Distinct().ToArray();
-                    var words = trimmedText.Split(' ').Select(x => x.Trim(punctuation).RemoveSpecialCharacters());
+                    var words = trimmedText.Split(' ')
+                        .Where(x => !x.StartsWith("&"))
+                        .Select(x => x.Trim(punctuation).RemoveSpecialCharacters())
+                        .Where(x => x != string.Empty);
+
                     foreach (var word in words)
                     {
-                        if (word != string.Empty)
-                        {
-                            textValues.Add(word);
-                        }
+                        textValues.Add(word);
                     }
                 }
             }
